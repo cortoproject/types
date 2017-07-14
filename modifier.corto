@@ -1,0 +1,78 @@
+in package types/modifier
+
+// Create class with members that use various modifiers
+class Modifiers:/
+    m_global: bool, global
+    m_local: bool, local
+    m_hidden: bool, hidden
+    m_private: bool, private
+    m_readonly: bool, readonly
+    m_const: bool, const
+    m_observable: bool, observable
+    m_optional: bool, optional
+    m_local_private: bool, local | private
+    m_local_readonly: bool, local | readonly
+    m_local_const: bool, local | const
+    m_global_private: bool, global | private
+    m_global_readonly: bool, global | readonly
+    m_global_const: bool, global | const
+    m_optional_observable: bool, optional | observable
+
+// Readonly inheritance
+class ReadonlyBase :/
+    a: bool
+    b: bool
+    c: bool
+
+class ReadonlySub: ReadonlyBase, readonly :/
+    d: bool
+
+// Local inheritance
+class LocalBase :/
+    a: bool
+    b: bool
+    c: bool
+
+class LocalSub: LocalBase, local :/
+    d: bool
+
+// Private inheritance
+class PrivateBase :/
+    a: bool
+    b: bool
+    c: bool
+
+class PrivateSub: PrivateBase, private :/
+    d: bool
+
+// Const inheritance
+class ConstBase :/
+    a: bool
+    b: bool
+    c: bool
+
+class ConstSub: ConstBase, const :/
+    d: bool
+
+// Instance of Modifiers
+Modifiers myModifiers {
+    true, // m_global
+    true, // m_const
+    true, // m_observable
+    true, // m_optional
+    true, // m_global_readonly
+    true, // m_global_const
+    true  // m_optional_observable
+}
+
+// Instance of ReadonlySub
+ReadonlySub myReadonlySub: 10 // d
+
+// Instance of LocalSub
+LocalSub myLocalSub: 10 // d
+
+// Instance of PrivateSub
+PrivateSub myPrivateSub: 10 // d
+
+// Instance of ConstSub
+ConstSub myConstSub: 10, 20, 30, 40 // a, b, c, d

@@ -1,4 +1,4 @@
-in package primitives
+in package primitive
 
 // Objects using built-in primitive types
 bool _bool: false

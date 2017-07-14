@@ -1,0 +1,32 @@
+in package types/alias
+
+// Reorder members from base class with hidden and alias
+class HiddenBase0 :/
+    c: bool
+
+class HiddenBase: HiddenBase0, hidden :/
+    a: bool
+    b: bool, hidden
+
+class HiddenSub: HiddenBase :/
+    alias b: HiddenBase/b
+    alias c: HiddenBase0/c
+    d: bool
+
+// Instance of HiddenSub
+HiddenSub myHiddenSub {
+    10, // a
+    20, // b
+    30, // c
+    40  // d
+}
+
+// Instance of HiddenBase
+HiddenBase myHiddenBase {
+    10 // a
+}
+
+// Instance of HiddenBase0
+HiddenBase0 myHiddenBase0 {
+    10 // c
+}

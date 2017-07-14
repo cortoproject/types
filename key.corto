@@ -1,0 +1,47 @@
+in package types/key
+
+// Class with key field
+class SingleKey:/
+    id: string, key
+    value: int32
+
+// Class with multiple key fields
+class MultipleKeys:/
+    id_1: int32, key
+    id_2: int32, key
+    value: string
+
+// Class with multiple string keys
+class MultipleStringKeys:/
+    id_1: string, key
+    id_2: string, key
+    value: string
+
+// Class with enumeration key
+class EnumKey:/
+    enum Color:/ Red, Orange, Yellow, Green, Blue, Purple
+    id: Color, key
+    value: string
+
+// Class with composite key
+class CompositeKey:/
+    struct gid:/ _1, _2, _3, _4: uint32
+    id: gid, key
+    value: string
+
+// Instance of SingleKey
+SingleKey mySingleKey: 10
+SingleKey ["Hello World"]: 10
+
+// Instance with multiple keys
+MultipleKeys [10,20]: "hello world"
+
+// Instance with multiple string keys
+MultipleStringKeys ["Hello", "World"]: "foobar"
+
+// Instance of EnumKey
+EnumKey Orange: 10
+EnumKey [Green]: 20
+
+// Instance of CompositeKey
+CompositeKey [10,20,30,40]: "foobar" 
