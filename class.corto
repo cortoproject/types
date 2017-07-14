@@ -1,0 +1,94 @@
+in package types/class
+
+// Enumeration for testing
+enum Color:/ Red, Orange, Yellow, Green, Blue, Purple
+
+// Bitmask for testing
+bitmask Recipe:/ HasSugar, HasSalt, HasPepper
+
+// class that contains all primitive types
+class Primitives :/
+    m_bool: bool
+    m_char: char
+    m_uint8: uint8
+    m_uint16: uint16
+    m_uint32: uint32
+    m_uint64: uint64
+    m_int8: int8
+    m_int16: int16
+    m_int32: int32
+    m_int64: int64
+    m_float32: float32
+    m_float64: float64
+    m_string: string
+    m_octet: octet
+    m_word: word
+    m_color: Color
+    m_recipe: Recipe
+
+// Simple class with constructor / destructor
+class Point:/
+    x, y: int32
+    void add(Point p)
+    int16 construct()
+    void destruct()
+
+// Class that uses inheritance with constructor / destructor
+class Point3D: Point :/
+    z: int32
+    void add(Point3D p)
+    int16 construct()
+    void destruct()
+
+// Class with reference to other class instances
+class Line :/
+    start, stop: Point
+
+// Class with nested class definition
+class ParentClass :/
+    id: int32
+
+    class ChildClass :/
+        id: int32
+
+// Class with anonymous member types
+struct Anonymous :/
+    m_str: text{}
+    m_int: int{width_8}
+
+// Instance of simple class
+Point p2d: 10, 20 :/
+    Point p3d: 30, 40 // Nested object
+
+// Instance of class with inheritance
+Point3D p3d: 10, 20, 30
+
+// Instance of class with nested clas members
+Line l: start=Point3D{40, 50, 60} stop=p3d
+
+// Instance of nested class
+ParentClass/ChildClass pc: 10
+
+// Instance of class with primitive members
+Primitives pr {
+    m_bool = true
+    m_char = 'a'
+    m_uint8 = 10
+    m_uint16 = 10
+    m_uint32 = 10
+    m_uint64 = 10
+    m_int8 = -10
+    m_int16 = -10
+    m_int32 = -10
+    m_int64 = -10
+    m_float32 = 10.5
+    m_float64 = 10.5
+    m_string = "hello world"
+    m_octet = 0x10
+    m_word = 0x100
+    m_color = Red
+    m_recipe = HasSugar|HasPepper
+}
+
+// Instance of class with anonymous type members
+Anonymous ac: "foo bar", 10
