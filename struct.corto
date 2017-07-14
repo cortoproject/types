@@ -1,0 +1,90 @@
+in package types/struct
+
+// Enumeration for testing
+enum Color:/ Red, Orange, Yellow, Green, Blue, Purple
+
+// Bitmask for testing
+bitmask Recipe:/ HasSugar, HasSalt, HasPepper
+
+// Struct that contains all primitive types
+struct Primitives :/
+    m_bool: bool
+    m_char: char
+    m_uint8: uint8
+    m_uint16: uint16
+    m_uint32: uint32
+    m_uint64: uint64
+    m_int8: int8
+    m_int16: int16
+    m_int32: int32
+    m_int64: int64
+    m_float32: float32
+    m_float64: float64
+    m_string: string
+    m_octet: octet
+    m_word: word
+    m_color: Color
+    m_recipe: Recipe
+
+// Simpe struct with single method
+struct Point :/
+    x, y: int32
+    void add(Point p)
+
+// Struct that uses inheritance
+struct Point3D: Point :/
+    z: int32
+    void add(Point3D p)
+
+// Struct with nested struct members
+struct Line :/
+    start, stop: Point3D
+
+// Struct with nested struct definition
+struct ParentStruct :/
+    id: int32
+
+    struct ChildStruct :/
+        id: int32
+
+// Struct with anonymous member types
+struct Anonymous :/
+    m_str: text{}
+    m_int: int{width_8}
+
+// Instance of simple struct
+Point p2d: 10, 20 :/
+    Point p3d: 30, 40 // Nested object
+
+// Instance of struct with inheritance
+Point3D p3d: 10, 20, 30
+
+// Instance of struct with nested struct members
+Line l: start={10, 20} stop={30, 40}
+
+// Instance of nested struct
+ParentStruct/ChildStruct pc: 10
+
+// Instance of struct with primitive members
+Primitives pr {
+    m_bool = true
+    m_char = 'a'
+    m_uint8 = 10
+    m_uint16 = 10
+    m_uint32 = 10
+    m_uint64 = 10
+    m_int8 = -10
+    m_int16 = -10
+    m_int32 = -10
+    m_int64 = -10
+    m_float32 = 10.5
+    m_float64 = 10.5
+    m_string = "hello world"
+    m_octet = 0x10
+    m_word = 0x100
+    m_color = Red
+    m_recipe = HasSugar|HasPepper
+}
+
+// Instance of struct with anonymous type members
+Anonymous as: "foo bar", 10

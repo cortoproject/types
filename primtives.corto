@@ -75,3 +75,7 @@ Color myColor: Red
 // Bitmask
 bitmask Recipe:/ HasSugar, HasSalt, HasPepper
 Recipe myRecipe: HasSalt|HasPepper
+
+// Special values
+string nullString: null
+Recipe noIngredients: 0
