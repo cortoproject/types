@@ -1,0 +1,77 @@
+in package primitives
+
+// Objects using built-in primitive types
+bool _bool: false
+char _char: 'a'
+uint8 _uint8: 10
+uint16 _uint16: 10
+uint32 _uint32: 10
+uint64 _uint64: 10
+int8 _int8: -10
+int16 _int16: -10
+int32 _int32: -10
+int64 _int64: -10
+float32 _float32: 10.5
+float64 _float64: 10.5
+string _string: "hello world"
+octet _octet: 0x10
+word _word: 0x100
+
+// Anonymous primitive types
+boolean{} myBool: true
+char{} myChar: 'b'
+uint{width_8} myUint8: 10
+uint{width_16} myUint16: 10
+uint{width_32} myUint32: 10
+uint{width_64} myUint64: 10
+int{width_8} myInt8: -10
+int{width_16} myInt16: -10
+int{width_32} myInt32: -10
+int{width_64} myInt64: -10
+float{width_32} myFloat32: 10.5
+float{width_64} myFloat64: 10.5
+text{width_word} myString: "hello world"
+binary{width_8} myOctet: 0x10
+binary{width_ptr} myWord: 0x100
+
+// Named custom primitive types
+boolean myBoolType{width = width_8}
+char myCharType{width = width_8}
+uint myUint8Type{width = width_8}
+uint myUint16Type{width = width_16}
+uint myUint32Type{width = width_32}
+uint myUint64Type{width = width_64}
+int myInt8Type{width_8}
+int myInt16Type{width_16}
+int myInt32Type{width_32}
+int myInt64Type{width_64}
+float myFloa32tType{width_32}
+float myFloat64Type{width_64}
+text myStringType{width_word}
+binary myBinary8Type{width_8}
+binary myBinaryPtrType{width_ptr}
+
+// Instances of custom primitive types
+boolean myBool: true
+char myChar: 'b'
+myUint8Type myUint8: 10
+myUint16Type myUint16: 10
+myUint32Type myUint32: 10
+myUint64Type myUint64: 10
+myInt8Type myInt8: -10
+myInt16Type myInt16: -10
+myInt32Type myInt32: -10
+myInt64Type myInt64: -10
+myFloat32Type myFloat32: 10.5
+myFloat64Type myFloat64: 10.5
+myStringType myString: "hello world"
+myBinary8Type myOctet: 0x10
+myBinaryPtrType myWord: 0x100
+
+// Enumeration
+enum Color:/ Red, Orange, Yellow, Green, Blue, Purple
+Color myColor: Red
+
+// Bitmask
+bitmask Recipe:/ HasSugar, HasSalt, HasPepper
+Recipe myRecipe: HasSalt|HasPepper
