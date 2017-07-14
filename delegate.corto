@@ -1,0 +1,30 @@
+in package types/delegate
+
+// Define new delegate type
+int32 addDelegate(int32 a, int32 b) delegate
+
+// Define function that matches delegate signature
+int32 add(int32 a, int32 b)
+
+// Create instance of delegate and assign function
+addDelegate myDelegate: add
+
+// Create delegate
+int32 sumDelegate() delegate
+
+// Create two structs with a method that matches the delegate
+struct Point:/
+    x, y: int32
+    int32 sum()
+
+struct Point3D:/
+    x, y, z: int32
+    int32 sum()
+
+// Create instances of Point and Point3D
+Point p: 10, 20
+Point3D p3d: 10, 20, 30
+
+// Create two delegates for both class instances
+sumDelegate pointSum: p.sum
+sumDelegate point3DSum: p3d.sum

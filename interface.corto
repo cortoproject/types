@@ -1,9 +1,12 @@
+in package types/interface
 
+// Interface specifying three methods
 interface Vehicle :/
     void move(int32 x, int32 y) overridable
     void stop() overridable
     int32 getSpeed() overridable
 
+// Class that implements Vehicle
 class Car: implements={Vehicle} :/
     speed: int32
     x, y: int32
@@ -11,14 +14,21 @@ class Car: implements={Vehicle} :/
     void stop()
     int32 getSpeed()
 
+// Class that implements Vehicle and contains extra methods
 class Plane: implements={Vehicle} :/
     speed: int32
     x, y: int32
     void move(int32 x, int32 y)
     void stop()
     int32 getSpeed()
+    void takeoff()
+    void land()
 
+// Instances of Car and Plane
 Car myCar: 0, 10, 20
 Plane myPlane: 0, 10, 20
+
+// Instances of Vehicle
 Vehicle v1: myCar
 Vehicle v2: myPlane
+Vehicle v3: null
