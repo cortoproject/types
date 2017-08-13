@@ -36,9 +36,19 @@ struct Point3D: Point :/
     z: int32
     void add(Point3D p)
 
+
 // Struct with nested struct members
 struct Line :/
     start, stop: Point3D
+
+// Class that uses inheritance with members of same name in base and subclass
+struct Base:/
+    a: int32
+    b: int32
+
+struct Sub: Base :/
+    b: int32
+    c: int32
 
 // Struct with nested struct definition
 struct ParentStruct :/
@@ -51,6 +61,12 @@ struct ParentStruct :/
 struct Anonymous :/
     m_str: text{}
     m_int: int{width_8}
+
+// Class that uses overlapping anonymous types with previous struct
+struct AnonymousOverlapping :/
+    m_str: text{}
+    m_int: int{width_8}
+    m_flt: float{width_32}
 
 // Instance of simple struct
 Point p2d: 10, 20 :/
@@ -88,3 +104,6 @@ Primitives pr {
 
 // Instance of struct with anonymous type members
 Anonymous as: "foo bar", 10
+
+// Instance of second struct with anonymous type members
+AnonymousOverlapping ac2: "hello world", 20, 10.5

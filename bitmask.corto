@@ -1,0 +1,18 @@
+in package types/bitmask
+
+enum BitmaskAutoConstants:/ A, B, C
+
+enum BitmaskManualConstants:/
+    D: 1
+    E: 2
+    F: 4
+
+enum BitmaskMixedConstants:/
+    constant G: 0
+    constant H
+    constant I
+    constant J: G | H
+
+BitmaskAutoConstants autoConstants: A | B
+BitmaskManualConstants manualConstants: D | E
+BitmaskMixedConstants mixedConstants: I|J

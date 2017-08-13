@@ -1,0 +1,27 @@
+in package types/enum
+
+enum EnumAutoConstants:/ A, B, C
+
+enum EnumManualConstants:/
+    D: 10
+    E: 20
+    F: 30
+
+enum EnumMixedConstants:/
+    constant G
+    constant H: 10
+    constant I: 4
+    constant J
+
+EnumAutoConstants auto1: A
+EnumAutoConstants auto2: B
+EnumAutoConstants auto3: C
+
+EnumManualConstants manual1: D
+EnumManualConstants manual2: E
+EnumManualConstants manual3: F
+
+EnumMixedConstants mixed1: G
+EnumMixedConstants mixed2: H
+EnumMixedConstants mixed3: I
+EnumMixedConstants mixed4: J

@@ -44,6 +44,15 @@ class Point3D: Point :/
 class Line :/
     start, stop: Point
 
+// Class that uses inheritance with members of same name in base and subclass
+class Base:/
+    a: int32
+    b: int32
+
+class Sub: Base :/
+    b: int32
+    c: int32
+
 // Class with nested class definition
 class ParentClass :/
     id: int32
@@ -52,9 +61,15 @@ class ParentClass :/
         id: int32
 
 // Class with anonymous member types
-struct Anonymous :/
+class Anonymous :/
     m_str: text{}
     m_int: int{width_8}
+
+// Class that uses overlapping anonymous types with previous struct
+class AnonymousOverlapping :/
+    m_str: text{}
+    m_int: int{width_8}
+    m_flt: float{width_32}
 
 // Instance of simple class
 Point p2d: 10, 20 :/
@@ -92,3 +107,6 @@ Primitives pr {
 
 // Instance of class with anonymous type members
 Anonymous ac: "foo bar", 10
+
+// Instance of second class with anonymous type members
+AnonymousOverlapping ac2: "hello world", 20, 10.5
